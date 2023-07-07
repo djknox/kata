@@ -7,6 +7,11 @@ class BowlingGame
     const FRAMES_PER_GAME = 10;
     protected array $rolls = [];
 
+    protected function pinCount(int $roll): int
+    {
+        return $this->rolls[$roll];
+    }
+
     public function roll(int $pins): void
     {
         $this->rolls[] = $pins;
@@ -65,10 +70,5 @@ class BowlingGame
     public function spareBonus(int $roll): int
     {
         return $this->pinCount($roll + 2);
-    }
-
-    protected function pinCount(int $roll): int
-    {
-        return $this->rolls[$roll];
     }
 }
